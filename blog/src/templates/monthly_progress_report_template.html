@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Progress Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monthly Progress Report - {{ month }} {{ year }}</h1>
+        <div class="section">
+            <div class="section-title">Bookings:</div>
+            {% for booking in bookings %}
+                <div class="item">{{ booking }}</div>
+            {% endfor %}
+        </div>
+        <div class="section">
+            <div class="section-title">Shows Seen:</div>
+            {% for show in shows %}
+                <div class="item">{{ show }}</div>
+            {% endfor %}
+        </div>
+        <div class="section">
+            <div class="section-title">Ratings:</div>
+            <ul>
+                {% for show, rating in ratings.items() %}
+                    <li>{{ show }} - {{ rating }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
